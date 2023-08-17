@@ -268,3 +268,67 @@
   new PureCounter();
 
 })()
+
+
+const nameInput = document.getElementById("name");
+const tickName = document.getElementById("tick-name");
+
+const emailInput = document.getElementById("email");
+const tickEmail = document.getElementById("tick-email");
+
+const subjectInput = document.getElementById("subject");
+const tickSubject = document.getElementById("tick-subject");
+
+const messageInput = document.querySelector("textarea");
+const tickMessage = document.getElementById("tick-message");
+
+nameInput.addEventListener("input", () => {
+  if (nameInput.validity.valid) {
+    tickName.style.display = "inline";
+  } else {
+    tickName.style.display = "none";
+  }
+});
+
+emailInput.addEventListener("input", () => {
+  if (emailInput.validity.valid) {
+    tickEmail.style.display = "inline";
+  } else {
+    tickEmail.style.display = "none";
+  }
+});
+
+subjectInput.addEventListener("input", () => {
+  if (subjectInput.validity.valid) {
+    tickSubject.style.display = "inline";
+  } else {
+    tickSubject.style.display = "none";
+  }
+});
+
+messageInput.addEventListener("input", () => {
+  if (messageInput.validity.valid) {
+    tickMessage.style.display = "inline";
+  } else {
+    tickMessage.style.display = "none";
+  }
+});
+
+
+
+// 
+const formGroups = document.querySelectorAll(".form-group");
+formGroups.forEach(formGroup => {
+  const input = formGroup.querySelector("input, textarea");
+  const tickMark = formGroup.querySelector(".tick-mark");
+  
+  input.addEventListener("input", () => {
+    if (input.validity.valid) {
+      tickMark.style.display = "inline";
+      input.style.borderColor = "green";
+    } else {
+      tickMark.style.display = "none";
+      input.style.borderColor = "#ccc";
+    }
+  });
+});
